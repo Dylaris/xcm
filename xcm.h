@@ -42,6 +42,12 @@
 
 #define NUM_VARGS(type, ...) (sizeof((type[]){__VA_ARGS__}) / sizeof(type))
 
+
+/*
+ * Get the offset of a struct member
+ */
+#define OFFSET_OF(type, member) ((size_t) &(((type *) 0)->member))
+
 /*
  * A macro used to imitate 'defer' 
  * =1. Without macro
