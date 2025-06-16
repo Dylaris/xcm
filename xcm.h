@@ -42,7 +42,6 @@
 
 #define NUM_VARGS(type, ...) (sizeof((type[]){__VA_ARGS__}) / sizeof(type))
 
-
 /*
  * Get the offset of a struct member
  */
@@ -90,9 +89,12 @@
  */
 #define TMP_REF(t, v) ((t[]){(v)})
 
-/*
- * Suppress unused variable warning
- */
 #define UNUSED(x) ((void) x)
+
+#define INVISIBLE __attribute__((visibility("hidden")))
+#define VISIBLE __attribute__((visibility("default")))
+
+#define INIT __attribute__((constructor))
+#define FINI __attribute__((destructor))
 
 #endif // XXX_C_MACROS_H
